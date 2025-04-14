@@ -1,10 +1,12 @@
 # 🚀 SCP for GitHub Actions
 
-[GitHub Action](https://github.com/features/actions) for copying files and artifacts via SSH.
+English | [简体中文](./README.zh-cn.md)
 
-[![Actions Status](https://github.com/appleboy/scp-action/workflows/scp%20files/badge.svg)](https://github.com/appleboy/scp-action/actions)
+A [GitHub Action](https://github.com/features/actions) for copying files and artifacts via SSH.
 
-**Important**: Only supports **Linux** [docker](https://www.docker.com/) containers.
+[![Actions Status](https://github.com/jsdtxm/x-scp-action/workflows/scp%20files/badge.svg)](https://github.com/jsdtxm/x-scp-action/actions)
+
+This project is built with [Golang](https://go.dev) and [drone-ssh](https://github.com/appleboy/drone-ssh). 🚀
 
 ## Usage
 
@@ -20,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: copy file via ssh password
-        uses: appleboy/scp-action@v0.1.7
+        uses: jsdtxm/x-scp-action@v0.1.7
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
@@ -55,7 +57,7 @@ See the [action.yml](./action.yml) file for more detail information.
 | tar_tmp_path        | Temporary path for tar file on the destination host                                                         | -             |
 | tar_exec            | Path to tar executable on the destination host                                                              | `tar`         |
 | tar_dereference     | Use `--dereference` flag with tar, follow symlinks; archive and dump the files they point to                | -             |
-| use_insecure_cipher | Include more ciphers with use_insecure_cipher (see [#15](https://github.com/appleboy/scp-action/issues/15)) | -             |
+| use_insecure_cipher | Include more ciphers with use_insecure_cipher (see [#15](https://github.com/jsdtxm/x-scp-action/issues/15)) | -             |
 
 SSH Proxy Setting:
 
@@ -71,7 +73,7 @@ SSH Proxy Setting:
 | proxy_key                 | Content of SSH proxy private key                                                                            | -             |
 | proxy_key_path            | Path of SSH proxy private key                                                                               | -             |
 | proxy_fingerprint         | Fingerprint SHA256 of the host public key. Default is to skip verification                                  | -             |
-| proxy_use_insecure_cipher | Include more ciphers with use_insecure_cipher (see [#15](https://github.com/appleboy/scp-action/issues/15)) | -             |
+| proxy_use_insecure_cipher | Include more ciphers with use_insecure_cipher (see [#15](https://github.com/jsdtxm/x-scp-action/issues/15)) | -             |
 
 ## Setting up a SSH Key
 
@@ -142,7 +144,7 @@ Copy file via a SSH password:
 
 ```yaml
 - name: copy file via ssh password
-  uses: appleboy/scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v0.1.7
   with:
     host: example.com
     username: foo
@@ -156,7 +158,7 @@ Using the environment variables
 
 ```yaml
 - name: copy file via ssh password
-  uses: appleboy/scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v0.1.7
   with:
     host: ${{ env.HOST }}
     username: ${{ env.USERNAME }}
@@ -170,7 +172,7 @@ Copy file via a SSH key:
 
 ```yaml
 - name: copy file via ssh key
-  uses: appleboy/scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v0.1.7
   with:
     host: ${{ secrets.HOST }}
     username: ${{ secrets.USERNAME }}
@@ -184,7 +186,7 @@ Example configuration for ignore list:
 
 ```yaml
 - name: copy file via ssh key
-  uses: appleboy/scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v0.1.7
   with:
     host: ${{ secrets.HOST }}
     username: ${{ secrets.USERNAME }}
@@ -197,7 +199,7 @@ Example configuration for ignore list:
 Example configuration for multiple servers:
 
 ```diff
-  uses: appleboy/scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v0.1.7
   with:
 -   host: "example.com"
 +   host: "foo.com,bar.com"
@@ -211,7 +213,7 @@ Example configuration for multiple servers:
 Example configuration for exclude custom files:
 
 ```yaml
-  uses: appleboy/scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v0.1.7
   with:
     host: "example.com"
     username: foo
@@ -245,7 +247,7 @@ deploy:
         path: distfiles
 
     - name: copy file to server
-      uses: appleboy/scp-action@v0.1.7
+      uses: jsdtxm/x-scp-action@v0.1.7
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -259,7 +261,7 @@ Remove the specified number of leading path elements:
 
 ```yaml
 - name: remove the specified number of leading path elements
-  uses: appleboy/scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v0.1.7
   with:
     host: ${{ secrets.HOST }}
     username: ${{ secrets.USERNAME }}
@@ -305,7 +307,7 @@ changes:
         separator: ","
 
     - name: copy file to server
-      uses: appleboy/scp-action@v0.1.7
+      uses: jsdtxm/x-scp-action@v0.1.7
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -319,7 +321,7 @@ Protecting a Private Key. The purpose of the passphrase is usually to encrypt th
 
 ```diff
   - name: ssh key with passphrase
-    uses: appleboy/scp-action@v0.1.7
+    uses: jsdtxm/x-scp-action@v0.1.7
     with:
       host: ${{ secrets.HOST }}
       username: ${{ secrets.USERNAME }}
@@ -348,7 +350,7 @@ Convert the target path to a Unix path: `/c/path/to/target/`
 
 ```diff
   - name: Copy to Windows
-      uses: appleboy/scp-action@v0.1.7
+      uses: jsdtxm/x-scp-action@v0.1.7
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
