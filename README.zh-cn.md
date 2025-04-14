@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: copy file via ssh password
-        uses: jsdtxm/x-scp-action@v0.1.7
+        uses: jsdtxm/x-scp-action@v1.2.0
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
@@ -134,7 +134,7 @@ ssh-keygen -t ed25519 -a 200 -C "your_email@example.com"
 
 ```yaml
 - name: copy file via ssh password
-  uses: jsdtxm/x-scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v1.2.0
   with:
     host: example.com
     username: foo
@@ -148,7 +148,7 @@ ssh-keygen -t ed25519 -a 200 -C "your_email@example.com"
 
 ```yaml
 - name: copy file via ssh password
-  uses: jsdtxm/x-scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v1.2.0
   with:
     host: ${{ env.HOST }}
     username: ${{ env.USERNAME }}
@@ -162,7 +162,7 @@ ssh-keygen -t ed25519 -a 200 -C "your_email@example.com"
 
 ```yaml
 - name: copy file via ssh key
-  uses: jsdtxm/x-scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v1.2.0
   with:
     host: ${{ secrets.HOST }}
     username: ${{ secrets.USERNAME }}
@@ -176,7 +176,7 @@ ssh-keygen -t ed25519 -a 200 -C "your_email@example.com"
 
 ```yaml
 - name: copy file via ssh key
-  uses: jsdtxm/x-scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v1.2.0
   with:
     host: ${{ secrets.HOST }}
     username: ${{ secrets.USERNAME }}
@@ -189,7 +189,7 @@ ssh-keygen -t ed25519 -a 200 -C "your_email@example.com"
 多服务器配置示例：
 
 ```diff
-  uses: jsdtxm/x-scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v1.2.0
   with:
 -   host: "example.com"
 +   host: "foo.com,bar.com"
@@ -203,7 +203,7 @@ ssh-keygen -t ed25519 -a 200 -C "your_email@example.com"
 排除特定文件示例：
 
 ```yaml
-  uses: jsdtxm/x-scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v1.2.0
   with:
     host: "example.com"
     username: foo
@@ -233,7 +233,7 @@ deploy:
         name: my-artifact
         path: distfiles
     - name: copy file to server
-      uses: jsdtxm/x-scp-action@v0.1.7
+      uses: jsdtxm/x-scp-action@v1.2.0
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -247,7 +247,7 @@ deploy:
 
 ```yaml
 - name: remove the specified number of leading path elements
-  uses: jsdtxm/x-scp-action@v0.1.7
+  uses: jsdtxm/x-scp-action@v1.2.0
   with:
     host: ${{ secrets.HOST }}
     username: ${{ secrets.USERNAME }}
@@ -291,7 +291,7 @@ changes:
         since_last_remote_commit: true
         separator: ","
     - name: copy file to server
-      uses: jsdtxm/x-scp-action@v0.1.7
+      uses: jsdtxm/x-scp-action@v1.2.0
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -305,7 +305,7 @@ changes:
 
 ```diff
   - name: ssh key with passphrase
-    uses: jsdtxm/x-scp-action@v0.1.7
+    uses: jsdtxm/x-scp-action@v1.2.0
     with:
       host: ${{ secrets.HOST }}
       username: ${{ secrets.USERNAME }}
@@ -332,7 +332,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "$env:
 
 ```diff
   - name: Copy to Windows
-      uses: jsdtxm/x-scp-action@v0.1.7
+      uses: jsdtxm/x-scp-action@v1.2.0
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
