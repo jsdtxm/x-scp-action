@@ -1,6 +1,6 @@
 # 🚀 GitHub Actions 的 SCP 传输工具
 
-简体中文 |[English](./README.md)
+简体中文 | [English](./README.md)
 
 [GitHub Action](https://github.com/features/actions) 通过 SCP 复制文件和产物。
 
@@ -55,6 +55,7 @@ jobs:
 | tar_exec            | 目标主机上tar可执行文件路径                                                                             | `tar`        |
 | tar_dereference     | 使用tar的`--dereference`标志，跟踪符号链接                                                              | -            |
 | use_insecure_cipher | 启用不安全加密算法（参见[#15](https://github.com/jsdtxm/x-scp-action/issues/15)）                       | -            |
+
 SSH代理设置：
 | 参数                      | 描述                                                                                                     | 默认值        |
 | ------------------------- | ------------------------------------------------------------------------------------------------------- | ------------ |
