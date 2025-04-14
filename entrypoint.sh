@@ -42,6 +42,8 @@ fi
 curl -fsSL --retry 5 --keepalive-time 2 ${INSECURE_OPTION} "${DOWNLOAD_URL_PREFIX}/${CLIENT_BINARY}" -o "${TARGET}"
 chmod +x "${TARGET}"
 
+[ -n "$INPUT_STRIP_COMPONENTS" ] && export INPUT_STRIP_COMPONENTS=$((INPUT_STRIP_COMPONENTS + 0))
+
 echo "======= CLI Version Information ======="
 "${TARGET}" --version
 echo "======================================="
